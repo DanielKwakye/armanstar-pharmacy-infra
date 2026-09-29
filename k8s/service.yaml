@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: armanstar-pharmacy-service
+spec:
+  selector:
+    app: armanstar-pharmacy-pod
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 3000
+#    - protocol: TCP
+#      port: 443
+#      targetPort: 3000
+  type: LoadBalancer

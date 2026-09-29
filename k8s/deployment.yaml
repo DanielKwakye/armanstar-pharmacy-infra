@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: armanstar-pharmacy-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: armanstar-pharmacy-pod
+  template:
+    metadata:
+      labels:
+        app: armanstar-pharmacy-pod
+    spec:
+      containers:
+        - name: armanstar-pharmacy-container
+          image: danielkwakye1000/armanstar-pharmacy:v1
+          ports:
+            - containerPort: 3000
+
