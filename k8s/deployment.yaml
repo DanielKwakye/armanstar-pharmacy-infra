@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: armanstar-pharmacy-container
-          image: danielkwakye1000/armanstar-pharmacy:v1
+          image: danielkwakye1000/armanstar-pharmacy:v2
           ports:
-            - containerPort: 3000
+            - containerPort: 3001
 
