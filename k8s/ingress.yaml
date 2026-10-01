@@ -1,0 +1,27 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: armanstar-pharmacy-ingress
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+
+spec:
+  ingressClassName: traefik
+
+  tls:
+    - hosts:
+        - armanstarpharmacy.com
+      secretName: armanstar-pharmacy-tls
+
+  rules:
+    - host: armanstarpharmacy.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: armanstar-pharmacy-service
+                # Forward matching requests to the service on port 3001.
+                port:
+                  number: 3001
